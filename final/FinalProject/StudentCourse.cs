@@ -1,11 +1,9 @@
 public class StudentCourse : Course
 {
-    public List<Assignment> _assignments;
-    
-
     public StudentCourse (string name, Teacher teacher, List<Assignment> assignments = null)
-    : base (name, teacher)
+    : base (name, teacher, assignments)
     {
-        
+        //you will do nothing because you can do nothing
     }
+    
 }

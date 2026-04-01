@@ -5,14 +5,32 @@ public abstract class Person
     {
         _name = name;
     }
-    public abstract void ViewGrades();
-    public virtual void AddCourse(Course course)
-    {
-        //nothing to see here
-        //the aprent isnt going to be able to add a couse so the default is nothing
-    }
+    public virtual void ViewGradesAll(){}
+    
     public string GetName()
     {
         return _name;
     }
+    public virtual List<string> ShuffleOptions(List<string> s)
+    {
+        return s;
+    }
+    public Grade ViewOneGrade(Course c)
+    {
+        int compCount = 0;
+        float sum = 0;
+        foreach(Assignment a in c.GetAssignmentAll())
+        {
+            if (a.GetCompleted())
+            {
+                sum += a.GetGrade().GetScore();
+                compCount ++;
+            }
+        }
+        compCount = compCount > 0 ? compCount : 1;
+        Grade g = new Grade(sum/compCount);
+        return g;
+    }
+    public abstract void DisplayCourses();
+    
 }

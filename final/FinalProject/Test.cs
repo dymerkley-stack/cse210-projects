@@ -13,7 +13,8 @@ public class Test : Assignment
         Console.WriteLine(GetName());
         foreach (Question q in _questions)
         {
-            
+            List<string> s = q.GetOptions();
+            p.DisplayAnswers(s);
         }
         
     }

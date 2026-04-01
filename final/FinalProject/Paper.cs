@@ -17,4 +17,13 @@ public class Paper : Assignment
             Console.WriteLine(s);
         }
     }
+    public List<string> GetStudentPaper()
+    {
+        return _paper;
+    }
+    public  void UpdatePaper(List<string> assignNew)
+    {
+        _paper = assignNew;
+        CompleteAssignment();
+    }
 }

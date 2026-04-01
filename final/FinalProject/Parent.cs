@@ -6,8 +6,19 @@ public class Parent : Person
     {
         _linkedChild = kid;
     }
-    public override void ViewGrades()
+    public override void ViewGradesAll()
     {
-        throw new NotImplementedException();
+        foreach (Course c in _linkedChild.GetCourses())
+        {
+            ViewOneGrade(c);
+        }
+    }
+    public override void DisplayCourses()
+    {
+        int i = 1;
+        foreach (Course c in _linkedChild.GetCourses())
+        {
+            Console.WriteLine($"{i}. {c.GetName()}");
+        }
     }
 }

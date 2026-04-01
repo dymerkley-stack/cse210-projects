@@ -4,6 +4,7 @@ public abstract class Assignment
     private Grade _grade;
     private float _weight;
     private bool _isComplete = false;
+    private bool _isGraded = false;
     public Assignment(string name, float weight)
     {
         _name = name;
@@ -33,7 +34,16 @@ public abstract class Assignment
     {
         _isComplete = true;
     }
+    public bool GetGraded()
+    {
+        return _isGraded;
+    }
+    public void SetGraded()
+    {
+        _isGraded = true;
+    }
 
     //i decided to get rid of the edit assignment as it would make more sense to just submit it one time and not eb constantly editing it
     public abstract void DisplayAssignment(Person p);
+    
 }

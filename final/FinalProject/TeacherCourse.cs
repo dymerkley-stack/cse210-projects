@@ -1,28 +1,18 @@
 
 public class TeacherCourse : Course
 {
-    private List<Assignment> _assignments;
     private List<Student> _roster;
     public TeacherCourse(string name, Teacher teacher, List<Assignment> assignments = null, List<Student> roster = null)
-    : base (name, teacher)
+    : base (name, teacher, assignments)
     {
-        _assignments = assignments;
         _roster = roster;
-    }
-    public Assignment GetAssignment(int index)
-    {
-        return _assignments[index];
-    }
-    public List<Assignment> GetAssignmentAll()
-    {
-        return _assignments;
     }
     public List<Student> GetRoster()
     {
         return _roster;
     }
-    public void AddAssignment(Assignment a)
+    public Student GetStudent(int index)
     {
-        _assignments.Add(a);
+        return _roster[index];
     }
 }
