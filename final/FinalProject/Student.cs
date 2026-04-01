@@ -18,20 +18,7 @@ public class Student : Person
             ViewOneGrade(c);
         }
     }
-    public override List<string> ShuffleOptions(List<string> list)
-    {
-        
-        Random rand = new Random();
-        
-            for (int i = list.Count - 1; i > 0; i--)
-            {
-                int rnd = rand.Next(0, i + 1); // inclusive upper bound
-                string temp = list[i];
-                list[i] = list[rnd];
-                list[rnd] = temp;
-            }
-        return list;
-    }
+    
     public List<Course> GetCourses()
     {
         return _courses;
@@ -73,7 +60,7 @@ public class Student : Person
         if (systemAssign is Paper pap)
         {
             List<string> newPaper = a.GetStudentPaper();
-            pap.UpdatePaper(newPaper);
+            pap.CompletePaper(newPaper);
         }
     }
     //I am adding a way to submit the different types of assignments into the class database

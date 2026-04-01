@@ -11,24 +11,21 @@ public abstract class Person
     {
         return _name;
     }
-    public virtual List<string> ShuffleOptions(List<string> s)
-    {
-        return s;
-    }
+    
     public Grade ViewOneGrade(Course c)
     {
-        int compCount = 0;
+        float weightSum = 0;
         float sum = 0;
         foreach(Assignment a in c.GetAssignmentAll())
         {
             if (a.GetCompleted())
             {
-                sum += a.GetGrade().GetScore();
-                compCount ++;
+                sum += a.GetGrade().GetScore();//this adds up the score multiplied by the relative weight os the assignment
+                weightSum += a.GetWeight();//this gets the total of all of the weights to divide later 
             }
         }
-        compCount = compCount > 0 ? compCount : 1;
-        Grade g = new Grade(sum/compCount);
+        weightSum = weightSum > 0 ? weightSum : 1;//just a little handling here to prevent divide by 0
+        Grade g = new Grade(sum/weightSum);
         return g;
     }
     public abstract void DisplayCourses();

@@ -9,6 +9,23 @@ public class Homework : Assignment
     }
     public override void DisplayAssignment(Person p)
     {
-        throw new NotImplementedException();
+        for (int i = 0; i < _questions.Count; i++)
+        {
+            Console.WriteLine(_questions[i]);
+
+            if (i < _responses.Count)
+            {
+                Console.WriteLine(_responses[i]);
+            }
+            else
+            {
+                Console.WriteLine("No response");
+            }
+        }
+    }
+    public void CompleteHomework(List<string> responses)
+    {
+        _responses = responses;
+        CompleteAssignment();
     }
 }

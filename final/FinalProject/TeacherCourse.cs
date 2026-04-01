@@ -15,4 +15,8 @@ public class TeacherCourse : Course
     {
         return _roster[index];
     }
+    public void AddStudent(Student s)
+    {
+        _roster.Add(s);
+    }
 }

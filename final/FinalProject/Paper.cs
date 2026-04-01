@@ -2,10 +2,10 @@ public class Paper : Assignment
 {
     private List<string> _paper;
     private string _description;
-    public Paper(string name, float weight)
+    public Paper(string name, float weight, string description)
     : base (name, weight)
     {
-        
+        _description = description;
     }
     public override void DisplayAssignment(Person p)
     {
@@ -21,7 +21,7 @@ public class Paper : Assignment
     {
         return _paper;
     }
-    public  void UpdatePaper(List<string> assignNew)
+    public void CompletePaper(List<string> assignNew)
     {
         _paper = assignNew;
         CompleteAssignment();
